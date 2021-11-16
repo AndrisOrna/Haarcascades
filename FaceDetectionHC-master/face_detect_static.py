@@ -1,3 +1,4 @@
+#import numpy as np
 import cv2
 import sys
 
@@ -6,30 +7,48 @@ imagePath = sys.argv[0]
 
 # Load the Haar Cascade 
 cascPath = 'haarcascade_frontalface_default.xml'
+# left eye Cascade
+cascPath = 'haarcascade_lefteye_2splits.xml'
+# right eye Cascade
+cascPath = 'haarcascade_righteye_2splits.xml'
+
+
 
 # Create the Haar Cascade
 faceCascade = cv2.CascadeClassifier(cascPath)
-
+leftEyeCascade = cv2.CascadeClassifier(cascPath)
 # Read the Image
-image = cv2.imread('op-wc.png')
+image = cv2.imread('bfZUt.jpg')
 
 # Convert to Gray-Scale
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+#red = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-# Detect Faces in the Image
-faces = faceCascade.detectMultiScale(
-    gray,
-    scaleFactor=1.1,
-    minNeighbors=5,
-    minSize=(25, 25)
-)
-
-print("Found {0} faces!".format(len(faces)))
+#print("Found {0} faces!".format(len(faces)))
 
 # Draw a rectangle around the Faces
-for (x, y, w, h) in faces:
-    cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+while 1:
+    ret, img = image.read()
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    faces = faceCascade.detectMultiScale(gray, 1.3, 5)
+    
+    
+    for (x,y,w,h) in faces:
+        cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
 
-cv2.imshow('Faces found', image)
+        
+        roi_gray = gray[y:y+h, x:x+w]
+        roi_color = img[y:y+h, x:x+w]
+        eyes = leftEyeCascade.detectMultiScale(roi_gray)
+        for (ex,ey,ew,eh) in eyes:
+            cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
+        for (xe,ye,we,he) in eyes:
+            cv2.rectangle(roi_color,(xe,ye),(xe+we,ye+he),(0,124,0),2)
+
+    cv2.imshow('img',img)
+    k = cv2.waitKey(30) & 0xff
+    if k == 27:
+        break
+cv2.imshow('Left eye found', image)
 cv2.waitKey(0)
 
