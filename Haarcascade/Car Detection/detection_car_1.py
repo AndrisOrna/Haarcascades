@@ -2,8 +2,7 @@
 
 import cv2
 print('Project Topic : Vehicle Classification')
-print('Research Internship on Machine learning using Images')
-print('By Aditya Yogish Pai and Aditya Baliga B')
+
 
 cascade_src = 'cars.xml'
 

@@ -55,6 +55,6 @@ for (ex,ey,ew,eh) in lefteyes:
 cv2.imshow('img',img)
 k = cv2.waitKey(0) 
     
-cv2.imshow('Left eye found', img)
-cv2.waitKey(0)
+#cv2.imshow('Left eye found', img)
+#cv2.waitKey(0)
 

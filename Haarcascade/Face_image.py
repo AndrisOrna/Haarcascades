@@ -11,7 +11,7 @@ import os
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", type=str,default="C:/Users/A00129244/Documents/GitHub/Haarcascades/Haarcascade/image/18824606_303.jpg",
+ap.add_argument("-i", "--image", type=str,default="C:/Users/A00129244/Documents/GitHub/Haarcascades/Haarcascade/image/nasa.jpg",
 	help="path to input image")
 ap.add_argument("-c", "--cascades", type=str, default="C:/Users/A00129244/Documents/GitHub/Haarcascades/Haarcascade/",
     help="path to input directory containing haar cascades")
