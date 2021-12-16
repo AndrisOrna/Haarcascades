@@ -6,7 +6,7 @@ print('Project Topic : Vehicle Classification')
 
 cascade_src = 'cars.xml'
 
-video_src = 'video.avi'
+video_src = 'traffic.avi'
 
 cap = cv2.VideoCapture(video_src)
 

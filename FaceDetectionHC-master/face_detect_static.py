@@ -49,12 +49,12 @@ righteyes = rightEyeCascade.detectMultiScale(roi_gray)
 for (ex,ey,ew,eh) in lefteyes:
     cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(255,255,0),2)
     
-# for (xe,ye,we,he) in righteyes:
-#     cv2.rectangle(roi_color,(xe,ye),(xe+we,ye+he),(0,124,0),2)
+for (xe,ye,we,he) in righteyes:
+     cv2.rectangle(roi_color,(xe,ye),(xe+we,ye+he),(0,124,0),2)
 
-cv2.imshow('img',img)
-k = cv2.waitKey(0) 
+#cv2.imshow('img',img)
+#k = cv2.waitKey(0) 
     
-#cv2.imshow('Left eye found', img)
-#cv2.waitKey(0)
+cv2.imshow('Left eye found', img)
+cv2.waitKey(0)
 

@@ -3,7 +3,7 @@
 import cv2
 
 
-video_src = 'pedestrians.avi'
+video_src = 'new_york_slow_motion.avi'
 
 cap = cv2.VideoCapture(video_src)
 
