@@ -2,11 +2,9 @@
 
 import cv2
 print('Project Topic : Vehicle Classification')
-print('Research Internship on Machine learning using Images')
-print('By Aditya Yogish Pai and Aditya Baliga B')
 
 cascade_src = 'Bus_front.xml'
-video_src = 'bus1.mp4'
+video_src = 'London_NightTraffic.avi'
 
 
 cap = cv2.VideoCapture(video_src)
